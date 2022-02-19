@@ -47,6 +47,8 @@ for(let i = 0; i < numberOfDrum; i++){
         var buttonAudio = this.innerHTML;
 
         drumSwitch(buttonAudio);
+
+        buttonAnimation(buttonAudio);
     })
 }
 
@@ -57,4 +59,20 @@ document.addEventListener("keypress",function(event){
     var eventKey = event.key;
 
     drumSwitch(eventKey);
+
+    buttonAnimation(eventKey);
 })
+
+
+function buttonAnimation(currentKey){
+
+    
+    var activeButton = document.querySelector("."+currentKey);
+    
+    activeButton.classList.add("pressed");
+
+    setTimeout(function(){
+        activeButton.classList.remove("pressed");
+    },1000)
+
+}
